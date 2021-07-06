@@ -15,27 +15,35 @@
     <div class="card " style="width: 24rem;">
         <img src="img.connect.jpg" class="card-img-top nb-img-cover" alt="...">
         <div class="card-body">
-            <form method="post" action="handler_user-login.php">
+            <form method="post" action="handler_user-register.php">
                 <div class="mb-3">
                     <label for="input-username" class="form-label">Nom d'utilisateur</label>
                     <input type="text" class="form-control" id="input-username" name="data-username">
                 </div>
-                <div class="mb-4">
+                <div class="mb-3">
+                    <label for="input-email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="input-email" name="data-email">
+                </div>
+                <div class="mb-3">
                     <label for="input-password" class="form-label">Mot de passe</label>
                     <input type="password" class="form-control" id="input-password" name="data-password">
                 </div>
-                <div class="d-grid mb-3 gap-2">
-                    <button type="submit" class="btn btn-outline-primary">Se connecter</button>
+                <div class="mb-4">
+                    <label for="input-confirmation" class="form-label">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control" id="input-confirmation" name="data-confirmation">
+                </div>
+                <div class="d-grid mb-4 gap-2">
+                    <button type="submit" class="btn btn-outline-primary">S'inscrire</button>
                 </div>
             </form>
-            <?php 
-                    if(!empty($_SESSION['success'])){
-                        echo '<div class="alert alert-success" role="alert">'. $_SESSION['success'].'</div>';
-                        $_SESSION['success']='';
+               <?php 
+                    if(!empty($_SESSION['error'])){
+                        echo '<div class="alert alert-danger" role="alert">'. $_SESSION['error'].'</div>';
+                        $_SESSION['error']='';
                     }
                ?>
-            <div class="d-flex justify-content-end ">
-                <a href="form_user-register.php">S'inscrire</a>
+            <div class="d-flex justify-content-end mt-2">
+                <a href="index.php">Retour</a>
             </div>
         </div>
     </div>
